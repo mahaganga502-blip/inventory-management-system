@@ -1,0 +1,131 @@
+# Inventory Management System
+inventory = {}
+def add_product():
+    name = input("Enter product name: ")
+    quantity = int(input("Enter quantity: "))
+    price = float(input("Enter price: "))
+    inventory[name] = {
+        "quantity": quantity,
+        "price": price
+    }
+    print("Product added successfully!\n")
+def view_inventory():
+    if not inventory:
+        print("Inventory is empty.\n")
+        return
+    print("\n===== INVENTORY =====")
+    for name, details in inventory.items():
+        print("Product  :", name)
+        print("Quantity :", details["quantity"])
+        print("Price    : ₹", details["price"])
+        print("----------------------")
+def search_product():
+    name = input("Enter product name to search: ")
+
+    if name in inventory:
+        print("\nProduct Found!")
+        print("Product  :", name)
+        print("Quantity :", inventory[name]["quantity"])
+        print("Price    : ₹", inventory[name]["price"])
+        print()
+    else:
+        print("Product not found.\n")
+def update_quantity():
+    name = input("Enter product name: ")
+    if name in inventory:
+        quantity = int(input("Enter new quantity: "))
+        inventory[name]["quantity"] = quantity
+        print("Quantity updated successfully!\n")
+    else:
+        print("Product not found.\n")
+def delete_product():
+    name = input("Enter product name to delete: ")
+    if name in inventory:
+        del inventory[name]
+        print("Product deleted successfully!\n")
+    else:
+        print("Product not found.\n")
+while True:
+    print("===== INVENTORY MANAGEMENT SYSTEM =====")
+    print("1. Add Product")
+    print("2. View Inventory")
+    print("3. Search Product")
+    print("4. Update Quantity")
+    print("5. Delete Product")
+    print("6. Exit")
+    choice = input("Enter your choice: ")
+    if choice == "1":
+        add_product()
+    elif choice == "2":
+        view_inventory()
+    elif choice == "3":
+        search_product()
+    elif choice == "4":
+        update_quantity()
+    elif choice == "5":
+        delete_product()
+    elif choice == "6":
+        print("Thank you for using Inventory Management System.")
+        break
+    else:
+        print("Invalid choice. Please try again.\n")
+
+OUTPUT:
+===== INVENTORY MANAGEMENT SYSTEM =====
+1. Add Product
+2. View Inventory
+3. Search Product
+4. Update Quantity
+5. Delete Product
+6. Exit
+Enter your choice: 1
+Enter product name: LAPTOP
+Enter quantity: 10
+Enter price: 45000
+Product added successfully!
+===== INVENTORY MANAGEMENT SYSTEM =====
+1. Add Product
+2. View Inventory
+3. Search Product
+4. Update Quantity
+5. Delete Product
+6. Exit
+Enter your choice: 2
+===== INVENTORY =====
+Product  : LAPTOP
+Quantity : 10
+Price    : ₹ 45000.0
+----------------------
+===== INVENTORY MANAGEMENT SYSTEM =====
+1. Add Product
+2. View Inventory
+3. Search Product
+4. Update Quantity
+5. Delete Product
+6. Exit
+Enter your choice: 4
+Enter product name: LAPTOP
+Enter new quantity: 8
+Quantity updated successfully!
+===== INVENTORY MANAGEMENT SYSTEM =====
+1. Add Product
+2. View Inventory
+3. Search Product
+4. Update Quantity
+5. Delete Product
+6. Exit
+Enter your choice: 3
+Enter product name to search: LAPTOP
+Product Found!
+Product  : LAPTOP
+Quantity : 8
+Price    : ₹ 45000.0
+===== INVENTORY MANAGEMENT SYSTEM =====
+1. Add Product
+2. View Inventory
+3. Search Product
+4. Update Quantity
+5. Delete Product
+6. Exit
+Enter your choice: 6
+Thank you for using Inventory Management System.
